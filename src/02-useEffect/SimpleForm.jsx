@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Message } from "./Message";
 
 
 
@@ -21,16 +22,16 @@ export const SimpleForm = () => {
     }
 
     useEffect(() =>{
-        console.log('useeffect called');
+        //console.log('useeffect called');
     }, []); // segundo parámetro es la dependencia, condiciones por las que queremos que se dispare, [] que se ejecute una vez
 
     // es mejor crear un useEffect por cada efecto que deseemos desencadenar
     useEffect(() =>{
-        console.log('form cambio');
+        //console.log('form cambio');
     }, [formState]);
 
     useEffect(() =>{
-        console.log('email cambio');
+        //console.log('email cambio');
     }, [email]);
 
     return (
@@ -40,6 +41,10 @@ export const SimpleForm = () => {
 
             <input value={username} onChange={onInputChange} type="text" className="form-control" placeholder="Username" name="username" />
             <input value={email} onChange={onInputChange} type="email" className="form-control mt-2" placeholder="marcelo@gmail.com" name="email" />
+        
+            {
+                (username === 'chelo2') && <Message />
+            }
         </>
     )
 }

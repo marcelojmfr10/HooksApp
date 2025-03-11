@@ -1,4 +1,4 @@
-import { useCounter } from '../hook/useCounter';
+import { useCounter } from '../hooks/useCounter';
 
 
 export const CounterWithCustomHook = () => {
