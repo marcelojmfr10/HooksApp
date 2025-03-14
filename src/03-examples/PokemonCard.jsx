@@ -14,27 +14,28 @@ export const PokemonCard = ({id, name, sprites=[]}) => {
     }, [name])
 
   return (
-    <section style={{height: 200, display: 'flex', flexDirection: 'row'}}>
-        <h2 ref={h2Ref} className="text-capitalize">#{id} - {name}</h2>
+        <section style={{ height: 200, display: 'flex', flexDirection: 'row' }}>
+            <h2 ref={h2Ref} className="text-capitalize">#{id} - {name}</h2>
 
-        {/* Imágenes*/}
-        <div>
-            {
-                sprites.map((sprite, index) => (
-                    <img 
-                        key={sprite}
-                        src={sprite}
-                        alt={name}
-                    />
-                ))
-            }
-        </div>
+            {/* Imágenes*/}
+            <div>
+                {
+                    sprites.map((sprite, index) => (
+                        <img
+                            key={sprite}
+                            src={sprite}
+                            alt={name}
+                        />
 
-        <pre>
-            {JSON.stringify(boxSize)}
-        </pre>
+                    ))
+                }
+            </div>
 
-    </section>
-  )
+            <pre>
+                {JSON.stringify(boxSize)}
+            </pre>
+
+        </section>
+    )
 }
 
