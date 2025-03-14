@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MultipleCustomHooks } from "../../src/03-examples/MultipleCustomHooks";
-import { useFetch } from "../../src/hooks";
+import { useFetch } from "../../src/hooks/useFetch";
 
 jest.mock("../../src/hooks/useFetch");
 
