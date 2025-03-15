@@ -24,7 +24,7 @@ import { MainApp } from './09-context/MainApp'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <MultipleCustomHooks />
+      <MainApp />
     </BrowserRouter>
   </StrictMode>,
 )
