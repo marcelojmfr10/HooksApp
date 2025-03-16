@@ -7,14 +7,14 @@ export const MultipleCustomHooks = () => {
 
   const {counter, decrement, increment} = useCounter(1);
 
-  const { data, hasError, isloading } = useFetch(`https://pokeapi.co/api/v2/pokemon/${counter}`);
+  const { data, hasError, isLoading } = useFetch(`https://pokeapi.co/api/v2/pokemon/${counter}`);
 
   return (
     <>
       <h1>Información de pokemons</h1>
       <hr />
 
-      {isloading 
+      {isLoading 
       ? <LoadingMessage /> 
       : (<PokemonCard 
         id={counter} 
