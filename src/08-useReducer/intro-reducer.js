@@ -1,34 +1,31 @@
-
-
 const initialState = [
-    {
-        id: 1,
-        todo: 'Recolectar la piedra del alma',
-        done: false,
-    }
+  {
+    id: 1,
+    todo: "Recolectar la piedra del alma",
+    done: false,
+  },
 ];
 
-const todoReducer = (state = initialState, action = {}) =>{
+const todoReducer = (state = initialState, action = {}) => {
+  if (action?.type === "[TODO] add todo") {
+    return [...state, action.payload];
+  }
 
-    if(action?.type === '[TODO] add todo'){
-        return [...state, action.payload];
-    }
-
-    return state;
-}
+  return state;
+};
 
 let todos = todoReducer();
 
 const newTodo = {
-    id: 2,
-    todo: 'recoletar la piedra del poder',
-    done: false,
-}
+  id: 2,
+  todo: "recoletar la piedra del poder",
+  done: false,
+};
 
 const addTodoAction = {
-    type: '[TODO] add todo',
-    payload: newTodo,
-}
+  type: "[TODO] add todo",
+  payload: newTodo,
+};
 
 todos = todoReducer(todos, addTodoAction);
 
@@ -39,4 +36,4 @@ todos = todoReducer(todos, addTodoAction);
 //     done: false,
 // })
 
-console.log({state: todos});
+console.log({ state: todos });

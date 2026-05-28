@@ -1,51 +1,58 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import { Message } from "./Message";
 
-
-
-
 export const SimpleForm = () => {
+  const [formState, setFormState] = useState({
+    username: "chelo",
+    email: "marcelo@gmail.com",
+  });
 
-    const [formState, setFormState] = useState({
-        username: 'chelo',
-        email: 'marcelo@gmail.com'
+  const { username, email } = formState;
+
+  const onInputChange = ({ target }) => {
+    const { name, value } = target;
+    setFormState({
+      ...formState,
+      [name]: value,
     });
+  };
 
-    const { username, email } = formState;
+  useEffect(() => {
+    //console.log('useeffect called');
+  }, []); // segundo parámetro es la dependencia, condiciones por las que queremos que se dispare, [] que se ejecute una vez
 
-    const onInputChange = ({ target }) => {
-        const { name, value } = target;
-        setFormState({
-            ...formState,
-            [name]: value
-        })
-    }
+  // es mejor crear un useEffect por cada efecto que deseemos desencadenar
+  useEffect(() => {
+    //console.log('form cambio');
+  }, [formState]);
 
-    useEffect(() =>{
-        //console.log('useeffect called');
-    }, []); // segundo parámetro es la dependencia, condiciones por las que queremos que se dispare, [] que se ejecute una vez
+  useEffect(() => {
+    //console.log('email cambio');
+  }, [email]);
 
-    // es mejor crear un useEffect por cada efecto que deseemos desencadenar
-    useEffect(() =>{
-        //console.log('form cambio');
-    }, [formState]);
+  return (
+    <>
+      <h1>Formulario Simple</h1>
+      <hr />
 
-    useEffect(() =>{
-        //console.log('email cambio');
-    }, [email]);
+      <input
+        value={username}
+        onChange={onInputChange}
+        type="text"
+        className="form-control"
+        placeholder="Username"
+        name="username"
+      />
+      <input
+        value={email}
+        onChange={onInputChange}
+        type="email"
+        className="form-control mt-2"
+        placeholder="marcelo@gmail.com"
+        name="email"
+      />
 
-    return (
-        <>
-            <h1>Formulario Simple</h1>
-            <hr />
-
-            <input value={username} onChange={onInputChange} type="text" className="form-control" placeholder="Username" name="username" />
-            <input value={email} onChange={onInputChange} type="email" className="form-control mt-2" placeholder="marcelo@gmail.com" name="email" />
-        
-            {
-                (username === 'chelo2') && <Message />
-            }
-        </>
-    )
-}
-
+      {username === "chelo2" && <Message />}
+    </>
+  );
+};

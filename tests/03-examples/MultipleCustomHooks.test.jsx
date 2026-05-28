@@ -4,28 +4,27 @@ import { useFetch } from "../../src/hooks/useFetch";
 
 jest.mock("../../src/hooks/useFetch");
 
-describe('Pruebas en MultipleCustomHooks', () => {
-
+describe("Pruebas en MultipleCustomHooks", () => {
   // Make sure that they are reset to their original state
   // beforeEach(() => {
   //   jest.clearAllMocks();
   // });
 
-  test('Debe de mostrar el componente por defecto', () => {
+  test("Debe de mostrar el componente por defecto", () => {
     useFetch.mockReturnValue({
       data: null,
       isLoading: true,
       hasError: null,
-      error: null
+      error: null,
     });
 
     render(<MultipleCustomHooks />);
     // screen.debug();
 
-    expect(screen.getByText('Cargando'));
-    expect(screen.getByText('Información de pokemons'));
+    expect(screen.getByText("Cargando"));
+    expect(screen.getByText("Información de pokemons"));
 
-    const nextButton = screen.getByRole('button', {name: 'Siguiente'});
+    const nextButton = screen.getByRole("button", { name: "Siguiente" });
     expect(nextButton.disabled).toBeFalsy();
   });
 
@@ -62,5 +61,4 @@ describe('Pruebas en MultipleCustomHooks', () => {
 
   //   expect(nextButton.disabled).toBeFalsy();
   // });
-  
 });
